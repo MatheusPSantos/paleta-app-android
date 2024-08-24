@@ -12,7 +12,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -28,10 +27,11 @@ data class Pontuacao(
 )
 
 @Composable
-fun PointsHistory(points: List<Pontuacao>) {
+fun PointsHistory(points: List<Pontuacao>, padding: PaddingValues) {
     LazyColumn(
+        modifier = Modifier.padding(padding),
         contentPadding = PaddingValues(vertical = 16.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp)
+        verticalArrangement = Arrangement.spacedBy(9.dp)
     ) {
         items(points) { point ->
             HistoryItem(point = point)
@@ -51,22 +51,22 @@ fun HistoryItem(point: Pontuacao) {
             .padding(horizontal = 16.dp)
     ) {
         Column(
-            modifier = Modifier.padding(16.dp)
+            modifier = Modifier.padding(10.dp)
         ) {
             Text(
                 text = point.nomeCartao,
-                fontSize = 18.sp,
+                fontSize = 16.sp,
                 fontWeight = FontWeight.Bold
             )
 
-            Spacer(modifier = Modifier.height(4.dp))
+            Spacer(modifier = Modifier.height(3.dp))
 
             Text(
                 text = "Pontuação: ${point.valorPontuacao}",
-                fontSize = 16.sp
+                fontSize = 14.sp
             )
 
-            Spacer(modifier = Modifier.height(4.dp))
+            Spacer(modifier = Modifier.height(3.dp))
 
             Text(
                 text = point.dataHora,

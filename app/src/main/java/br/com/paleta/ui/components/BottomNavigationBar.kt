@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Icon
@@ -25,7 +26,7 @@ fun BottomNavigationBar(navController: NavHostController) {
             selected = true,
             onClick = { navController.navigate("home") },
             icon = { Icon(Icons.Default.Home, contentDescription = "Home") },
-            label = { Text("Home") })
+            label = { Text("Início") })
         NavigationBarItem(
             selected = false,
             onClick = { navController.navigate("addFidelity") },
@@ -34,7 +35,13 @@ fun BottomNavigationBar(navController: NavHostController) {
         )
         NavigationBarItem(
             selected = false,
-            onClick = { /* Ação do botão Perfil */ },
+            onClick = { navController.navigate("history") },
+            label = { Text("Histórico") },
+            icon = { Icon(Icons.Default.List, contentDescription = "Histórico") }
+        )
+        NavigationBarItem(
+            selected = false,
+            onClick = { navController.navigate("profile") },
             label = { Text("Perfil") },
             icon = { Icon(Icons.Default.Person, contentDescription = "Perfil") }
         )

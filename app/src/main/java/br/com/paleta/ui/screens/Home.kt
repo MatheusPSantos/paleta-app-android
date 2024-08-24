@@ -9,18 +9,17 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import br.com.paleta.ui.components.BottomNavigationBar
 import br.com.paleta.ui.components.FidelityCard
 import br.com.paleta.ui.components.MainCard
-import br.com.paleta.ui.components.PointsHistory
 import br.com.paleta.ui.components.Pontuacao
 
 @Composable
@@ -58,11 +57,12 @@ fun HomeScreen(navController: NavHostController) {
                 modifier = Modifier.padding(bottom = 8.dp)
             )
 
-            LazyRow(
+            LazyColumn(
                 contentPadding = PaddingValues(horizontal = 16.dp), // Padding ajustado
-                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                items(3) { index ->
+                items(39) { index ->
                     FidelityCard(cardTitle = "Cartão ${index + 1}")
                 }
             }
@@ -74,10 +74,19 @@ fun HomeScreen(navController: NavHostController) {
                 style = MaterialTheme.typography.titleMedium,
                 modifier = Modifier.padding(bottom = 8.dp)
             )
-
-
-            PointsHistory(points = pontuacoes)
-
+            //PointsHistory(points = pontuacoes)
+//            Spacer(modifier = Modifier.height(1.dp))
+//            Text(
+//                text = "Ver histórico completo",
+//                style = MaterialTheme.typography.bodyLarge.copy(color = MaterialTheme.colorScheme.primary),
+//                modifier = Modifier
+//                    .align(Alignment.CenterHorizontally)
+//                    .padding(vertical = 16.dp)
+//                    .clickable {
+//                        navController.navigate("historico_pontos")
+//                    }
+//
+//            )
         }
     }
 }

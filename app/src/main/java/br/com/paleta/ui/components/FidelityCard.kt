@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -22,15 +23,16 @@ fun FidelityCard(cardTitle: String) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
+            .fillMaxWidth()
             .background(Color.Transparent, shape = RoundedCornerShape(8.dp))
             .padding(12.dp)
     ) {
         // Componente Cartão menor
         Box(
             modifier = Modifier
-                .padding(2.dp)
-                .size(120.dp, 70.dp)
+                .size(240.dp, 130.dp)
                 .background(Color(0xFF03DAC5), shape = RoundedCornerShape(8.dp))
+                .align(Alignment.CenterHorizontally)
         ) {
             // Imagem ou conteúdo dentro do cartão
         }
